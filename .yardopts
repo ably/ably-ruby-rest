@@ -1,0 +1,3 @@
+--exclude lib/submodules/ably-ruby/lib/ably/realtime
+--exclude lib/submodules/ably-ruby/spec
+--exclude lib/submodules/ably-ruby/lib/modules/event_machine_helpers.rb
