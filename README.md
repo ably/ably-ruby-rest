@@ -1,5 +1,9 @@
 # [Ably](https://ably.io)
 
+[![Build Status](https://travis-ci.org/ably/ably-ruby-rest.png)](https://travis-ci.org/ably/ably-ruby-rest)
+[![Gem Version](https://badge.fury.io/rb/ably-rest.svg)](http://badge.fury.io/rb/ably-rest)
+
+
 A Ruby REST client library for [ably.io](https://ably.io), the real-time messaging service.
 
 Note: This library was created solely for developers who do not want EventMachine as a dependency of their application.  If this is not a requirement for you, then we recommended you use the combined [REST & Real-time gem](https://rubygems.org/gems/ably).
