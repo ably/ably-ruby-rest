@@ -12,12 +12,15 @@ require 'ably-rest'
 $:.push File.expand_path('../lib/submodules/ably-ruby/spec', File.dirname(__FILE__))
 
 require 'support/api_helper'
-require 'support/event_machine_helper'
+require 'support/private_api_formatter'
+require 'support/protocol_helper'
+require 'support/random_helper'
 
 require 'rspec_config'
 
-def require_tests_from(path)
+def require_tests_from(path, options = {})
+  ignore_files = options.fetch(:ignore_file_macher, nil)
   Dir.glob(File.expand_path("../lib/submodules/ably-ruby/spec/#{path}/*.rb", File.dirname(__FILE__))).each do |file|
-    require file
+    require file if ignore_files.nil? || !File.basename(file).match(ignore_files)
   end
 end

@@ -1,13 +1,15 @@
 $:.unshift File.expand_path(File.dirname(__FILE__), 'submodules/ably-ruby/lib')
 
 %w(modules util).each do |namespace|
+  ignore_modules = /^async|event_machine|state_machine/
   Dir.glob(File.expand_path("submodules/ably-ruby/lib/ably/#{namespace}/*.rb", File.dirname(__FILE__))).each do |file|
-    require file
+    require file unless File.basename(file).match(ignore_modules)
   end
 end
 
 require 'ably/auth'
 require 'ably/exceptions'
+require 'ably/logger'
 require 'ably-rest/modules/eventmachine_deferrable'
 require 'ably/rest'
 require 'ably/version'
