@@ -1,4 +1,4 @@
-$:.unshift File.expand_path(File.dirname(__FILE__), 'submodules/ably-ruby/lib')
+$:.unshift File.expand_path('submodules/ably-ruby/lib', File.dirname(__FILE__))
 
 %w(modules util).each do |namespace|
   ignore_modules = /^async|event_machine|state_machine/
