@@ -1,7 +1,12 @@
 # coding: utf-8
 lib = File.expand_path('../lib/submodules/ably-ruby/lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'ably/version'
+
+begin
+  require_relative 'lib/submodules/ably-ruby/lib/ably/version'
+rescue LoadError => e
+  fail 'Are you sure the submodule for ably-ruby exists at lib/submodules?  If not, run `git submodule update`'
+end
 
 Gem::Specification.new do |spec|
   spec.name          = 'ably-rest'
