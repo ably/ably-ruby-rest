@@ -1,10 +1,11 @@
-$:.unshift File.expand_path('submodules/ably-ruby/lib', File.dirname(__FILE__))
+File.expand_path('submodules/ably-ruby/lib', File.dirname(__FILE__)).tap do |lib|
+  $LOAD_PATH.unshift lib
 
-begin
-  require_relative 'submodules/ably-ruby/lib/ably/version'
-rescue LoadError => e
-  puts e
-  fail 'Are you sure the submodule for ably-ruby exists at lib/submodules?  If not, run `git submodule update`'
+  begin
+    require File.join(lib, 'ably/version')
+  rescue LoadError => e
+    fail "#{e.message}\nAre you sure the submodule for ably-ruby exists at lib/submodules?  If not, run `git submodule init && git submodule update`"
+  end
 end
 
 %w(modules util).each do |namespace|

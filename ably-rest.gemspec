@@ -1,11 +1,12 @@
-# coding: utf-8
-lib = File.expand_path('../lib/submodules/ably-ruby/lib', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+# encoding: utf-8
+File.expand_path('../lib/submodules/ably-ruby/lib', __FILE__).tap do |lib|
+  $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
-begin
-  require_relative 'lib/submodules/ably-ruby/lib/ably/version'
-rescue LoadError => e
-  fail 'Are you sure the submodule for ably-ruby exists at lib/submodules?  If not, run `git submodule update`'
+  begin
+    require File.join(lib, 'ably/version')
+  rescue LoadError => e
+    fail "#{e.message}\nAre you sure the submodule for ably-ruby exists at lib/submodules?  If not, run `git submodule init && git submodule update`"
+  end
 end
 
 Gem::Specification.new do |spec|
@@ -31,6 +32,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rake'
   spec.add_development_dependency 'redcarpet'
   spec.add_development_dependency 'rspec', '~> 3.0'
+  spec.add_development_dependency 'rspec-retry'
   spec.add_development_dependency 'yard'
   spec.add_development_dependency 'webmock'
 end
