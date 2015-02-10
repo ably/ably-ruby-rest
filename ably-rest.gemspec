@@ -19,7 +19,14 @@ Gem::Specification.new do |spec|
   spec.homepage      = 'http://github.com/ably/ably-ruby-rest'
   spec.license       = 'MIT'
 
-  spec.files         = `git ls-files`.split($/)
+  submodule_path  = File.expand_path('../lib/submodules/ably-ruby', __FILE__)
+  submodule_files = Dir.chdir(submodule_path) do
+    `git ls-files`.split($\).map do |file|
+      "lib/submodules/ably-ruby/#{file}"
+    end
+  end
+
+  spec.files         = `git ls-files`.split($/) + submodule_files
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ['lib']
