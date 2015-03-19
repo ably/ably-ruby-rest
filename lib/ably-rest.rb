@@ -9,7 +9,7 @@ File.expand_path('submodules/ably-ruby/lib', File.dirname(__FILE__)).tap do |lib
 end
 
 %w(modules util).each do |namespace|
-  ignore_modules = /^async|event_machine|state_machine/
+  ignore_modules = /^async|event_machine|state_machine|deferrable/
   Dir.glob(File.expand_path("submodules/ably-ruby/lib/ably/#{namespace}/*.rb", File.dirname(__FILE__))).each do |file|
     require file unless File.basename(file).match(ignore_modules)
   end
