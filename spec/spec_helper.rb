@@ -15,6 +15,11 @@ require 'support/private_api_formatter'
 require 'support/protocol_helper'
 require 'support/random_helper'
 
+# Load in all shared behaviours
+Dir.glob(File.expand_path("../lib/submodules/ably-ruby/spec/shared/*.rb", File.dirname(__FILE__))).each do |file|
+  require file
+end
+
 require 'rspec_config'
 
 def require_tests_from(path, options = {})
