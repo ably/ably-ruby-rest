@@ -26,42 +26,68 @@ Or install it yourself as:
 
 ## Using the REST API
 
+All examples assume a client and/or channel has been created as follows:
+
+```ruby
+client = Ably::Rest.new(api_key: 'xxxxx')
+channel = client.channel('test')
+```
+
 ### Publishing a message to a channel
 
 ```ruby
-client = Ably::Rest.new(api_key: "xxxxx")
-channel = client.channel("test")
-channel.publish("myEvent", "Hello!") #=> true
+channel.publish('myEvent', 'Hello!') #=> true
 ```
 
-### Fetching a channel's history
+### Querying the History
 
 ```ruby
-client = Ably::Rest.new(api_key: "xxxxx")
-channel = client.channel("test")
-channel.history #=> [{:name=>"test", :data=>"payload"}]
+mesage_history = channel.history #=> #<Ably::Models::PaginatedResource ...>
+message_history.first # => #<Ably::Models::Message ...>
 ```
 
-### Authentication with a token
+### Presence on a channel
 
 ```ruby
-client = Ably::Rest.new(api_key: "xxxxx")
-client.auth.authorise # creates a token and will use token authentication moving forwards
-client.auth.current_token #=> #<Ably::Models::Token>
-channel.publish("myEvent", "Hello!") #=> true, sent using token authentication
+members = channel.presence.get # => #<Ably::Models::PaginatedResource ...>
+members.first # => #<Ably::Models::PresenceMessage ...>
+```
+
+### Querying the Presence History
+
+```ruby
+presence_history = channel.presence.history # => #<Ably::Models::PaginatedResource ...>
+presence_history.first # => #<Ably::Models::PresenceMessage ...>
+```
+
+### Generate Token and Token Request
+
+```ruby
+client.auth.request_token
+# => #<Ably::Models::Token ...>
+
+token = client.auth.create_token_request
+# => {"id"=>...,
+#     "clientId"=>nil,
+#     "ttl"=>3600,
+#     "timestamp"=>...,
+#     "capability"=>"{\"*\":[\"*\"]}",
+#     "nonce"=>...,
+#     "mac"=>...}
+
+client = Ably::Rest.new(token_id: token.id)
 ```
 
 ### Fetching your application's stats
 
 ```ruby
-client = Ably::Rest.new(api_key: "xxxxx")
-client.stats #=> [{:channels=>..., :apiRequests=>..., ...}]
+stats = client.stats #=> #<Ably::Models::PaginatedResource ...>
+stats.first = #<Ably::Models::Stat ...>
 ```
 
 ### Fetching the Ably service time
 
 ```ruby
-client = Ably::Rest.new(api_key: "xxxxx")
 client.time #=> 2013-12-12 14:23:34 +0000
 ```
 
