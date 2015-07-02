@@ -91,10 +91,23 @@ stats.first = #<Ably::Models::Stat ...>
 client.time #=> 2013-12-12 14:23:34 +0000
 ```
 
+## Support, feedback and troubleshooting
+
+Please visit http://support.ably.io/ for access to our knowledgebase and to ask for any assistance.
+
+You can also view the [community reported Github issues](https://github.com/ably/ably-ruby-rest/issues).
+
+To see what has changed in recent versions of Bundler, see the [CHANGELOG](CHANGELOG.md).
+
 ## Contributing
 
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Ensure you have added suitable tests and the test suite is passing(`bundle exec rspec`)
 4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+5. Create a new Pull Request
+
+## License
+
+Copyright (c) 2015 Ably Real-time Ltd, Licensed under the Apache License, Version 2.0.  Refer to [LICENSE](LICENSE) for the license terms.
