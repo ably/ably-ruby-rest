@@ -29,7 +29,7 @@ Or install it yourself as:
 All examples assume a client and/or channel has been created as follows:
 
 ```ruby
-client = Ably::Rest.new(api_key: 'xxxxx')
+client = Ably::Rest.new(key: 'xxxxx')
 channel = client.channel('test')
 ```
 
