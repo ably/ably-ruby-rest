@@ -14,10 +14,10 @@ Gem::Specification.new do |spec|
   spec.version       = Ably::VERSION
   spec.authors       = ['Matthew O\'Riordan']
   spec.email         = ['matt@ably.io']
-  spec.description   = %q{A Ruby REST only client library for ably.io, the real-time messaging service}
-  spec.summary       = %q{A Ruby REST only client library for ably.io, the real-time messaging service}
+  spec.description   = %q{A Ruby REST only client library for ably.io realtime messaging}
+  spec.summary       = %q{A Ruby REST only client library for ably.io realtime messaging}
   spec.homepage      = 'http://github.com/ably/ably-ruby-rest'
-  spec.license       = 'MIT'
+  spec.license       = 'Apache 2'
 
   submodule_path  = File.expand_path('../lib/submodules/ably-ruby', __FILE__)
   submodule_files = Dir.chdir(submodule_path) do
@@ -33,13 +33,19 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency 'faraday', '~> 0.9'
   spec.add_runtime_dependency 'json'
-  spec.add_runtime_dependency 'msgpack-ably', '~> 0.5.10'
+  spec.add_runtime_dependency 'msgpack', '>= 0.6.2'
+  spec.add_runtime_dependency 'addressable', '>= 2.0.0'
 
   spec.add_development_dependency 'bundler', '~> 1.3'
   spec.add_development_dependency 'rake'
   spec.add_development_dependency 'redcarpet'
-  spec.add_development_dependency 'rspec', '~> 3.0'
+  spec.add_development_dependency 'rspec', '~> 3.2.0'
   spec.add_development_dependency 'rspec-retry'
   spec.add_development_dependency 'yard'
   spec.add_development_dependency 'webmock'
+
+  if RUBY_VERSION.match(/^2/)
+    spec.add_development_dependency 'pry'
+    spec.add_development_dependency 'pry-byebug'
+  end
 end
