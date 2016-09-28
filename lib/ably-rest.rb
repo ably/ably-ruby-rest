@@ -1,3 +1,5 @@
+require 'addressable/uri'
+
 File.expand_path('submodules/ably-ruby/lib', File.dirname(__FILE__)).tap do |lib|
   $LOAD_PATH.unshift lib
 
