@@ -1,12 +1,14 @@
-# [Ably](https://ably.io)
+# [Ably](https://www.ably.io)
 
-[![Build Status](https://travis-ci.org/ably/ably-ruby-rest.png)](https://travis-ci.org/ably/ably-ruby-rest)
 [![Gem Version](https://badge.fury.io/rb/ably-rest.svg)](http://badge.fury.io/rb/ably-rest)
 
+A Ruby REST client library for [www.ably.io](https://www.ably.io), the realtime messaging service.
 
-A Ruby REST client library for [ably.io](https://ably.io), the real-time messaging service.
+Note: This library was created solely for developers who do not want EventMachine as a dependency of their application.  If this is not a requirement for you, then we recommended you use the combined [REST & Realtime gem](https://rubygems.org/gems/ably).
 
-Note: This library was created solely for developers who do not want EventMachine as a dependency of their application.  If this is not a requirement for you, then we recommended you use the combined [REST & Real-time gem](https://rubygems.org/gems/ably).
+## Documentation
+
+Visit https://www.ably.io/documentation for a complete API reference and more examples. The examples and API below is not exhaustive.
 
 ## Installation
 
@@ -42,47 +44,78 @@ channel.publish('myEvent', 'Hello!') #=> true
 ### Querying the History
 
 ```ruby
-mesage_history = channel.history #=> #<Ably::Models::PaginatedResource ...>
-message_history.first # => #<Ably::Models::Message ...>
+messages_page = channel.history #=> #<Ably::Models::PaginatedResult ...>
+messages_page.items.first #=> #<Ably::Models::Message ...>
+messages_page.items.first.data # payload for the message
+messages_page.next # retrieves the next page => #<Ably::Models::PaginatedResult ...>
+messages_page.has_next? # false, there are more pages
 ```
 
-### Presence on a channel
+### Current presence members on a channel
 
 ```ruby
-members = channel.presence.get # => #<Ably::Models::PaginatedResource ...>
-members.first # => #<Ably::Models::PresenceMessage ...>
+members_page = channel.presence.get # => #<Ably::Models::PaginatedResult ...>
+members_page.items.first # first member present in this page => #<Ably::Models::PresenceMessage ...>
+members_page.items.first.client_id # client ID of first member present
+members_page.next # retrieves the next page => #<Ably::Models::PaginatedResult ...>
+members_page.has_next? # false, there are more pages
 ```
 
-### Querying the Presence History
+### Querying the presence history
 
 ```ruby
-presence_history = channel.presence.history # => #<Ably::Models::PaginatedResource ...>
-presence_history.first # => #<Ably::Models::PresenceMessage ...>
+presence_page = channel.presence.history #=> #<Ably::Models::PaginatedResult ...>
+presence_page.items.first #=> #<Ably::Models::PresenceMessage ...>
+presence_page.items.first.client_id # client ID of first member
+presence_page.next # retrieves the next page => #<Ably::Models::PaginatedResult ...>
 ```
 
-### Generate Token and Token Request
+### Symmetric end-to-end encrypted payloads on a channel
+
+When a 128 bit or 256 bit key is provided to the library, all payloads are encrypted and decrypted automatically using that key on the channel. The secret key is never transmitted to Ably and thus it is the developer's responsibility to distribute a secret key to both publishers and subscribers.
 
 ```ruby
-client.auth.request_token
-# => #<Ably::Models::Token ...>
+secret_key = Ably::Util::Crypto.generate_random_key
+channel = client.channels.get('test', cipher: { key: secret_key })
+channel.publish nil, "sensitive data" # data will be encrypted before publish
+messages_page = channel.history
+messages_page.items.first.data #=> "sensitive data"
+```
 
-token = client.auth.create_token_request
+### Generate a Token
+
+Tokens are issued by Ably and are readily usable by any client to connect to Ably:
+
+```ruby
+token_details = client.auth.request_token
+# => #<Ably::Models::TokenDetails ...>
+token_details.token # => "xVLyHw.CLchevH3hF....MDh9ZC_Q"
+client = Ably::Rest.new(token: token_details)
+```
+
+### Generate a TokenRequest
+
+Token requests are issued by your servers and signed using your private API key. This is the preferred method of authentication as no secrets are ever shared, and the token request can be issued to trusted clients without communicating with Ably.
+
+```ruby
+token_request = client.auth.create_token_request(ttl: 3600, client_id: 'jim')
 # => {"id"=>...,
-#     "clientId"=>nil,
+#     "clientId"=>"jim",
 #     "ttl"=>3600,
 #     "timestamp"=>...,
 #     "capability"=>"{\"*\":[\"*\"]}",
 #     "nonce"=>...,
 #     "mac"=>...}
 
-client = Ably::Rest.new(token_id: token.id)
+client = Ably::Rest.new(token: token_request)
 ```
 
 ### Fetching your application's stats
 
 ```ruby
-stats = client.stats #=> #<Ably::Models::PaginatedResource ...>
-stats.first = #<Ably::Models::Stat ...>
+stats_page = client.stats #=> #<Ably::Models::PaginatedResult ...>
+stats_page.items.first = #<Ably::Models::Stats ...>
+stats_page.next # retrieves the next page => #<Ably::Models::PaginatedResult ...>
 ```
 
 ### Fetching the Ably service time
@@ -110,4 +143,4 @@ To see what has changed in recent versions of Bundler, see the [CHANGELOG](CHANG
 
 ## License
 
-Copyright (c) 2015 Ably Real-time Ltd, Licensed under the Apache License, Version 2.0.  Refer to [LICENSE](LICENSE) for the license terms.
+Copyright (c) 2016 Ably Real-time Ltd, Licensed under the Apache License, Version 2.0.  Refer to [LICENSE](LICENSE) for the license terms.
