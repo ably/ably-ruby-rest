@@ -22,7 +22,6 @@ require 'ably/exceptions'
 require 'ably/logger'
 require 'ably-rest/modules/eventmachine_deferrable'
 require 'ably/rest'
-require 'ably/version'
 
 # Ably is the base namespace for the Ably {Ably::Rest Rest} client libraries.
 #
@@ -30,4 +29,6 @@ require 'ably/version'
 #
 # @see file:README.md README
 module Ably
+  # Used to alter the user agent to ably-rest-[VERSION]
+  configure_lib_variant = 'rest'
 end
