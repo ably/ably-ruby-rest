@@ -41,12 +41,12 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'addressable', '>= 2.0.0'
 
   spec.add_development_dependency 'bundler', '~> 1.3'
-  spec.add_development_dependency 'rake'
-  spec.add_development_dependency 'redcarpet'
+  spec.add_development_dependency 'rake', '~> 11.3'
+  spec.add_development_dependency 'redcarpet', '~> 3.3'
   spec.add_development_dependency 'rspec', '~> 3.2.0'
-  spec.add_development_dependency 'rspec-retry'
-  spec.add_development_dependency 'yard'
-  spec.add_development_dependency 'webmock'
+  spec.add_development_dependency 'rspec-retry', '~> 0.4'
+  spec.add_development_dependency 'yard', '~> 0.9'
+  spec.add_development_dependency 'webmock', '~> 2.0'
 
   unless RUBY_VERSION.match(/^1/)
     spec.add_development_dependency 'pry'
