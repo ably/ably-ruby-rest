@@ -5,11 +5,15 @@
 
 A Ruby REST client library for [www.ably.io](https://www.ably.io), the realtime messaging service.
 
-Note: This library was created solely for developers who do not want EventMachine as a dependency of their application.  If this is not a requirement for you, then we recommended you use the combined [REST & Realtime gem](https://rubygems.org/gems/ably).
-
 ## Documentation
 
-Visit https://www.ably.io/documentation for a complete API reference and more examples. The examples and API below is not exhaustive.
+Visit https://www.ably.io/documentation for a complete API reference and more examples. The examples and API below is not exhaustive, you should use the completely [Ably API documentation](https://www.ably.io/documentation).
+
+## Realtime vs REST
+
+This REST only library was created for developers who do not want EventMachine as a dependency of their application. Typically developers who are using Ably within their Rails or Sinatra apps would prefer to use the REST library as it has less dependencies and offers a synchronous API.
+
+If however you need to use a realtime library that offers an asynchronous evented AP, then we recommended you [take a look at the combined REST & Realtime gem](https://rubygems.org/gems/ably).
 
 ## Installation
 
