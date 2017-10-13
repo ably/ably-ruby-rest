@@ -146,6 +146,10 @@ To see what has changed in recent versions of Bundler, see the [CHANGELOG](CHANG
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
 
+## Release Process
+
+See the [Ably Ruby release process notes](https://github.com/ably/ably-ruby#release-process).
+
 ## License
 
-Copyright (c) 2016 Ably Real-time Ltd, Licensed under the Apache License, Version 2.0.  Refer to [LICENSE](LICENSE) for the license terms.
+Copyright (c) 2017 Ably Real-time Ltd, Licensed under the Apache License, Version 2.0.  Refer to [LICENSE](LICENSE) for the license terms.
