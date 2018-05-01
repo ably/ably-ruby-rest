@@ -14,6 +14,7 @@ require 'support/api_helper'
 require 'support/private_api_formatter'
 require 'support/protocol_helper'
 require 'support/random_helper'
+require 'support/test_logger_helper'
 
 # Load in all shared behaviours
 Dir.glob(File.expand_path("../lib/submodules/ably-ruby/spec/shared/*.rb", File.dirname(__FILE__))).each do |file|

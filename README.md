@@ -139,6 +139,8 @@ To see what has changed in recent versions of Bundler, see the [CHANGELOG](CHANG
 
 ## Contributing
 
+Please note that the bulk of this repo is in fact a submodule of the [Ably Ruby REST & Realtime library](https://github.com/ably/ably-ruby). If you want to issue a PR, it is likely you should be looking in that repo to add features or make contributions.
+
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
@@ -147,6 +149,15 @@ To see what has changed in recent versions of Bundler, see the [CHANGELOG](CHANG
 5. Create a new Pull Request
 
 ## Release Process
+
+1. `cd` into the [`lib/submodules/ably-ruby`](./lib/submodules/ably-ruby) folder.
+1. Fetch the latest from origin and checkout the [latest `ably-ruby` release tag](https://github.com/ably/ably-ruby/releases) - `git fetch origin && git checkout v1.0.0`
+1. Return the root folder.
+1. Replicate any changes made in [.ably-rest.gemspec](./.ably-rest.gemspec), [.travis.yaml](./.travis.yml) or [spec_helper.rb][./spec/spec_helper.rb] file if applicable and commit those changes.
+1. Run `rake doc:spec` to generate a new [spec file](./SPEC.md).
+1. Commit these changes.
+1. Add a tag and push to origin such as `git tag v1.0.0 && git push origin v1.0.0`
+1. Run `rake release` to publish the gem to [Rubygems](https://rubygems.org/gems/ably-rest)
 
 See the [Ably Ruby release process notes](https://github.com/ably/ably-ruby#release-process).
 
