@@ -1,6 +1,5 @@
 # [Ably](https://www.ably.io)
 
-[![Build Status](https://travis-ci.org/ably/ably-ruby-rest.png)](https://travis-ci.org/ably/ably-ruby-rest)
 [![Gem Version](https://badge.fury.io/rb/ably-rest.svg)](http://badge.fury.io/rb/ably-rest)
 
 A Ruby REST client library for [www.ably.io](https://www.ably.io), the realtime messaging service.
