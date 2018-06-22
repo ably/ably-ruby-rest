@@ -152,11 +152,12 @@ Please note that the bulk of this repo is in fact a submodule of the [Ably Ruby 
 
 1. From the master branch, `cd lib/submodules/ably-ruby`
 2. `git fetch origin && git fetch --tags`
-3. Reset to the tagged version released in ably-ruby, e.g. `git reset v1.0.5`
+3. Reset to the tagged version released in ably-ruby, e.g. `git reset v1.0.5 --hard`
 4. Ensure submodules of this submodule are up to date (`git submodule update`)
 5. cd to `ably-ruby-rest`
-6. Commit version upgrade (`git commit -m "Version upgrade to v1.0.5"`)
-7. Run `rake release`
+6. Stage changes `git add .`
+7. Commit version upgrade (`git commit -m "Version upgrade to v1.0.5"`)
+8. Run `rake release`
 
 See the [Ably Ruby release process notes](https://github.com/ably/ably-ruby#release-process).
 
