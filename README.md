@@ -2,7 +2,7 @@
 
 [![Gem Version](https://badge.fury.io/rb/ably-rest.svg)](http://badge.fury.io/rb/ably-rest)
 
-A Ruby REST client library for [www.ably.io](https://www.ably.io), the realtime messaging service.
+A Ruby REST client library for [www.ably.io](https://www.ably.io), the realtime messaging service. This library currently targets the [Ably 1.1 client library specification](https://www.ably.io/documentation/client-lib-development-guide/features/). You can jump to the '[Known Limitations](#known-limitations)' section to see the features this client library does not yet support or visit the [Feature Support Matrix](https://www.ably.io/feature-support-matrix) to see the list of all the available features.
 
 ## Documentation
 
@@ -13,6 +13,14 @@ Visit https://www.ably.io/documentation for a complete API reference and more ex
 This REST only library was created for developers who do not want EventMachine as a dependency of their application. Typically developers who are using Ably within their Rails or Sinatra apps would prefer to use the REST library as it has less dependencies and offers a synchronous API.
 
 If however you need to use a realtime library that offers an asynchronous evented AP, then we recommended you [take a look at the combined REST & Realtime gem](https://rubygems.org/gems/ably).
+
+## Known Limitations
+
+This client library is currently *not compatible* with some of the Ably features:
+
+| Feature | Spec reference |
+| :--- | :--- |
+| Custom transportParams | [RTC1f](https://ably.io/documentation/client-lib-development-guide/features/#RTC1f) |
 
 ## Installation
 
