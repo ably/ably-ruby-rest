@@ -2,7 +2,7 @@
 
 [![Gem Version](https://badge.fury.io/rb/ably-rest.svg)](http://badge.fury.io/rb/ably-rest)
 
-A Ruby REST client library for [www.ably.io](https://www.ably.io), the realtime messaging service. This library currently targets the [Ably 1.1 client library specification](https://www.ably.io/documentation/client-lib-development-guide/features/). You can jump to the '[Known Limitations](#known-limitations)' section to see the features this client library does not yet support or visit the [Feature Support Matrix](https://www.ably.io/feature-support-matrix) to see the list of all the available features.
+A Ruby REST client library for [www.ably.io](https://www.ably.io), the realtime messaging service. This library currently targets the [Ably 1.1 client library specification](https://www.ably.io/documentation/client-lib-development-guide/features/). You can jump to the '[Known Limitations](#known-limitations)' section to see the features this client library does not yet support or [view our client library SDKs feature support matrix](https://www.ably.io/download/sdk-feature-support-matrix) to see the list of all the available features.
 
 ## Documentation
 
@@ -18,10 +18,9 @@ If however you need to use a realtime library that offers an asynchronous evente
 
 This client library is currently *not compatible* with some of the Ably features:
 
-| Feature | Spec reference |
-| :--- | :--- |
-| Custom transportParams | [RTC1f](https://ably.io/documentation/client-lib-development-guide/features/#RTC1f) |
-
+| Feature |
+| :--- |
+| [Custom transportParams](https://www.ably.io/documentation/realtime/connection#client-options) |
 
 ## Installation
 
