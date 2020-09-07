@@ -158,7 +158,7 @@ Please note that the bulk of this repo is in fact a submodule of the [Ably Ruby 
 
 ## Release Process
 
-1. From the master branch, `cd lib/submodules/ably-ruby`
+1. From the `main` branch, `cd lib/submodules/ably-ruby`
 2. `git fetch origin && git fetch --tags`
 3. Reset to the tagged version released in ably-ruby, e.g. `git reset v1.0.5 --hard`
 4. Ensure submodules of this submodule are up to date (`git submodule update`)
