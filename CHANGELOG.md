@@ -1,3 +1,3 @@
 # Change Log
 
-See https://github.com/ably/ably-ruby/blob/master/CHANGELOG.md
+See https://github.com/ably/ably-ruby/blob/main/CHANGELOG.md
