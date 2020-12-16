@@ -31,8 +31,8 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ['lib']
 
-  spec.add_runtime_dependency 'faraday', '~> 0.12'
-  spec.add_runtime_dependency 'excon', '~> 0.55'
+  spec.add_runtime_dependency 'faraday', '~> 1.0'
+  spec.add_runtime_dependency 'typhoeus', '~> 1.4'
 
   if RUBY_VERSION.match(/^1/)
     spec.add_runtime_dependency 'json', '< 2.0'
@@ -42,11 +42,11 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'msgpack', '>= 0.6.2'
   spec.add_runtime_dependency 'addressable', '>= 2.0.0'
 
-  spec.add_development_dependency 'bundler', '>= 1.3.0'
-  spec.add_development_dependency 'rake', '~> 11.3'
+  spec.add_development_dependency 'rake', '~> 13.0'
+  spec.add_development_dependency 'bundler', '~> 2.2.1'
   spec.add_development_dependency 'redcarpet', '~> 3.3'
-  spec.add_development_dependency 'rspec', '~> 3.2.0'
-  spec.add_development_dependency 'rspec-retry', '~> 0.4'
+  spec.add_development_dependency 'rspec', '~> 3.10.0'
+  spec.add_development_dependency 'rspec-retry', '~> 0.6'
   spec.add_development_dependency 'yard', '~> 0.9'
 
   if RUBY_VERSION.match(/^1/)
