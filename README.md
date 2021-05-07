@@ -38,6 +38,8 @@ Or install it yourself as:
 
     $ gem install ably-rest
 
+As of v1.1.5 this library requires `libcurl` as a system dependency. On most systems this is already installed but in rare cases where it isn't (for example debian-slim Docker images such as ruby-slim) you will need to install it yourself. On debian you can install it with the command `sudo apt-get install libcurl4`.
+
 ## Using the REST API
 
 All examples assume a client and/or channel has been created as follows:
