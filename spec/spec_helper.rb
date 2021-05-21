@@ -15,6 +15,11 @@ require 'support/private_api_formatter'
 require 'support/protocol_helper'
 require 'support/random_helper'
 require 'support/test_logger_helper'
+require 'support/serialization_helper'
+
+RSpec.configure do |config|
+  config.include SerializationHelper
+end
 
 # Load in all shared behaviours
 Dir.glob(File.expand_path("../lib/submodules/ably-ruby/spec/shared/*.rb", File.dirname(__FILE__))).each do |file|
