@@ -8,6 +8,9 @@ rvm:
   - 2.2.0
   - 2.3.6
   - 2.4.1
+  - 2.6.7
+  - 2.7.3
+  - 3.0.0
 before_install:
   - git submodule update --init --recursive
 script: bundle exec rspec
