@@ -31,33 +31,28 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ['lib']
 
-  spec.add_runtime_dependency 'faraday', '~> 1.0'
+  spec.add_runtime_dependency 'faraday', '~> 2.2'
   spec.add_runtime_dependency 'excon', '~> 0.55'
   spec.add_runtime_dependency 'typhoeus', '~> 1.4'
+  spec.add_runtime_dependency 'faraday-typhoeus', '~> 0.2.0'
 
-  if RUBY_VERSION.match(/^1/)
-    spec.add_runtime_dependency 'json', '< 2.0'
-  else
-    spec.add_runtime_dependency 'json'
-  end
-  spec.add_runtime_dependency 'msgpack', '>= 0.6.2'
+  spec.add_runtime_dependency 'json'
+  spec.add_runtime_dependency 'msgpack', '=1.5.2'
   spec.add_runtime_dependency 'addressable', '>= 2.0.0'
 
   spec.add_development_dependency 'bundler', '>= 1.3.0'
-  spec.add_development_dependency 'rake', '~> 11.3'
+  spec.add_development_dependency 'rake', '~> 13.0.6'
   spec.add_development_dependency 'redcarpet', '~> 3.3'
-  spec.add_development_dependency 'rspec', '~> 3.2.0'
-  spec.add_development_dependency 'rspec-retry', '~> 0.4'
-  spec.add_development_dependency 'webrick'
+  spec.add_development_dependency 'rspec', '~> 3.11'
+  spec.add_development_dependency 'rspec-retry', '~> 0.6.2'
   spec.add_development_dependency 'yard', '~> 0.9'
 
-  if RUBY_VERSION.match(/^1/)
-    spec.add_development_dependency 'public_suffix', '~> 1.4.6' # Later versions do not support Ruby 1.9
-    spec.add_development_dependency 'webmock', '2.2'
-  else
-    spec.add_development_dependency 'webmock', '~> 2.2'
-    spec.add_development_dependency 'coveralls'
-    spec.add_development_dependency 'pry'
-    spec.add_development_dependency 'pry-byebug'
+  spec.add_development_dependency 'webmock', '~> 3.14.0'
+  spec.add_development_dependency 'coveralls'
+  spec.add_development_dependency 'pry', '~> 0.14.1'
+  spec.add_development_dependency 'pry-byebug'
+
+  if RUBY_VERSION.match(/^3\./)
+    spec.add_development_dependency 'webrick', '~> 1.7.0'
   end
 end
