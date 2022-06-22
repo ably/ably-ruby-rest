@@ -48,7 +48,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'yard', '~> 0.9'
 
   spec.add_development_dependency 'webmock', '~> 3.14.0'
-  spec.add_development_dependency 'coveralls'
   spec.add_development_dependency 'pry', '~> 0.14.1'
   spec.add_development_dependency 'pry-byebug'
 
