@@ -161,14 +161,17 @@ Please note that the bulk of this repo is in fact a submodule of the [Ably Ruby 
 
 ## Release Process
 
-1. From the `main` branch, `cd lib/submodules/ably-ruby`
-2. `git fetch origin && git fetch --tags`
-3. Reset to the tagged version released in ably-ruby, e.g. `git reset v1.0.5 --hard`
-4. Ensure submodules of this submodule are up to date (`git submodule update`)
-5. cd to `ably-ruby-rest`
-6. Stage changes `git add .`
-7. Commit version upgrade (`git commit -m "Version upgrade to v1.0.5"`)
-8. Run `rake release`
+1. Create a branch for the release, named like `release/1.2.3` (where `1.2.3` is the new version number)
+2. Change dir to `cd lib/submodules/ably-ruby` and `git fetch origin && git fetch --tags`
+3. Reset to the tagged version released in ably-ruby, e.g. `git reset v1.2.3 --hard`
+4. Ensure submodules of this submodule are up to date using `git submodule update`
+5. Change dir back to root / `ably-ruby-rest`
+6. Stage changes made at submodule file `git add lib/submodules/ably-ruby`
+7. Commit the change `git commit -m "Version upgrade to v1.2.3"` and push the changes.
+8. Make a PR against `main`. Once the PR is approved, merge it into `main`
+9. Add a tag to the new `main` head commit and push to origin such as `git tag v1.2.3 && git push origin v1.2.3`
+10. Visit [https://github.com/ably/ably-ruby/tags](https://github.com/ably/ably-ruby/tags) and `Add release notes` for the release including links to the changelog entry. 
+11. Run `rake release` to publish the gem to [Rubygems](https://rubygems.org/gems/ably-rest)
 
 See the [Ably Ruby release process notes](https://github.com/ably/ably-ruby#release-process).
 
