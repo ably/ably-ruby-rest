@@ -1,0 +1,47 @@
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    strategy:
+      matrix:
+        ruby: [ '2.7', '3.0', '3.1' ]
+        protocol: [ 'json', 'msgpack' ]
+        type: [ 'unit', 'acceptance' ]
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'recursive'
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+          bundler-cache: true
+      - name: 'Run ${{ matrix.type }} tests on ruby ${{ matrix.ruby }} (${{ matrix.protocol }} protocol)'
+        env:
+          PARALLEL_TEST_PROCESSORS: 2
+          RSPEC_RETRY: true
+          PROTOCOL: ${{ matrix.protocol }}
+          TEST_TYPE: ${{ matrix.type }}
+          RUBY_VERSION: ${{ matrix.ruby }}
+        run: |
+          cp .github/workflows/.rspec_parallel .rspec_parallel
+          mkdir junit
+          bundle exec parallel_rspec --prefix-output-with-test-env-number --first-is-1 -- spec/${{ matrix.type }}
+      - uses: actions/upload-artifact@v3
+        with:
+          path: |
+            junit/
+            coverage/
+          retention-days: 7
+      - name: Upload test results
+        if: always()
+        uses: ably-labs/test-observability-action@main
+        with:
+          server-url: 'https://test-observability.herokuapp.com'
+          server-auth: ${{ secrets.TEST_OBSERVABILITY_SERVER_AUTH_KEY }}
+          path: 'junit/'

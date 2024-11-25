@@ -2,3 +2,5 @@ Gemfile.lock
 .yardoc
 doc/*
 pkg
+coverage/
+junit/
