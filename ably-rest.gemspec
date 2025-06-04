@@ -34,7 +34,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'faraday', '~> 2.2'
   spec.add_runtime_dependency 'excon', '~> 0.55'
   spec.add_runtime_dependency 'typhoeus', '~> 1.4'
-  spec.add_runtime_dependency 'faraday-typhoeus', '~> 0.2.0'
+  spec.add_runtime_dependency 'faraday-typhoeus', '~> 1.1.0'
 
   spec.add_runtime_dependency 'json'
   spec.add_runtime_dependency 'msgpack', '>= 1.5.2', '< 2.0'
