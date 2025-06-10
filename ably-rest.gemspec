@@ -32,25 +32,22 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_runtime_dependency 'faraday', '~> 2.2'
-  spec.add_runtime_dependency 'excon', '~> 0.55'
   spec.add_runtime_dependency 'typhoeus', '~> 1.4'
   spec.add_runtime_dependency 'faraday-typhoeus', '~> 0.2.0'
 
   spec.add_runtime_dependency 'json'
-  spec.add_runtime_dependency 'msgpack', '>= 1.5.2', '< 2.0'
+  spec.add_runtime_dependency 'msgpack', '>= 1.3.0'
   spec.add_runtime_dependency 'addressable', '>= 2.0.0'
 
   spec.add_development_dependency 'bundler', '>= 1.3.0'
-  spec.add_development_dependency 'rake', '~> 13.0.6'
+  spec.add_development_dependency 'rake', '~> 13.0'
   spec.add_development_dependency 'redcarpet', '~> 3.3'
-  spec.add_development_dependency 'rspec', '~> 3.11'
-  spec.add_development_dependency 'rspec-retry', '~> 0.6.2'
+  spec.add_development_dependency 'rspec', '~> 3.11.0'
+  spec.add_development_dependency 'rspec-retry', '~> 0.6'
   spec.add_development_dependency 'yard', '~> 0.9'
-
-  spec.add_development_dependency 'webmock', '~> 3.14.0'
-  spec.add_development_dependency 'coveralls'
+  spec.add_development_dependency 'webmock', '~> 3.11'
   spec.add_development_dependency 'pry', '~> 0.14.1'
-  spec.add_development_dependency 'pry-byebug'
+  spec.add_development_dependency 'pry-byebug', '~> 3.8.0'
 
   if RUBY_VERSION.match(/^3\./)
     spec.add_development_dependency 'webrick', '~> 1.7.0'
