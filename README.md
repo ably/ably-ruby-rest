@@ -75,14 +75,10 @@ Read the [CONTRIBUTING.md](./CONTRIBUTING.md) guidelines to contribute to Ably.
 
 ---
 
-## Known Limitations
-
-This client library is currently *not compatible* with some of the Ably features:
-
-| Feature |
-| :--- |
-| [Custom transportParams](https://www.ably.io/documentation/realtime/connection#client-options) |
-
 ## Support, feedback and troubleshooting
 
 For help or technical support, visit Ably's [support page](https://ably.com/support). You can also view the [community reported Github issues](https://github.com/ably/ably-ruby-rest/issues) or raise one yourself.
+
+### Custom transportParams
+
+This client library is currently not compatible with [Custom transportParams](https://www.ably.io/documentation/realtime/connection#client-options)
