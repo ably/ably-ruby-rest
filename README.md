@@ -63,10 +63,6 @@ $ gem install ably-rest
 
 ---
 
-## Documentation
-
-Visit https://www.ably.io/documentation for a complete API reference and more examples. The examples and API below is not exhaustive, you should use the completely [Ably API documentation](https://www.ably.io/documentation).
-
 ## Realtime vs REST
 
 This REST only library was created for developers who do not want EventMachine as a dependency of their application. Typically developers who are using Ably within their Rails or Sinatra apps would prefer to use the REST library as it has less dependencies and offers a synchronous API.
