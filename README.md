@@ -39,6 +39,30 @@ Ably aims to support a wide range of platforms and browsers. If you experience a
 
 ---
 
+## Installation
+
+The client library is available as a [gem from RubyGems.org](https://rubygems.org/gems/ably-rest).
+
+Add this line to your application's Gemfile:
+
+```bash
+gem 'ably-rest'
+```
+
+And then execute:
+
+```bash
+$ bundle
+```
+
+Or install it yourself as:
+
+```bash
+$ gem install ably-rest
+```
+
+---
+
 ## Documentation
 
 Visit https://www.ably.io/documentation for a complete API reference and more examples. The examples and API below is not exhaustive, you should use the completely [Ably API documentation](https://www.ably.io/documentation).
@@ -56,22 +80,6 @@ This client library is currently *not compatible* with some of the Ably features
 | Feature |
 | :--- |
 | [Custom transportParams](https://www.ably.io/documentation/realtime/connection#client-options) |
-
-## Installation
-
-The client library is available as a [gem from RubyGems.org](https://rubygems.org/gems/ably-rest).
-
-Add this line to your application's Gemfile:
-
-    gem 'ably-rest'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install ably-rest
 
 ## Using the REST API
 
