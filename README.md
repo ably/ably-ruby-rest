@@ -26,6 +26,19 @@ Everything you need to get started with Ably:
 
 ---
 
+## Supported platforms
+
+Ably aims to support a wide range of platforms and browsers. If you experience any compatibility issues, open an issue in the repository or contact [Ably support](https://ably.com/support).
+
+| Platform | Support |
+|----------|---------|
+| Ruby | >= 2.7 |
+
+> [!IMPORTANT]
+> SDK versions < 1.2.5 will be [deprecated](https://ably.com/docs/platform/deprecate/protocol-v1) from November 1, 2025.
+
+---
+
 ## Documentation
 
 Visit https://www.ably.io/documentation for a complete API reference and more examples. The examples and API below is not exhaustive, you should use the completely [Ably API documentation](https://www.ably.io/documentation).
