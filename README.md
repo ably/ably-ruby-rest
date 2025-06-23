@@ -18,6 +18,14 @@ Find out more:
 
 ---
 
+## Getting started
+
+Everything you need to get started with Ably:
+
+- [Quickstart in Pub/Sub using Ruby](https://ably.com/docs/getting-started/quickstart?lang=ruby)
+
+---
+
 ## Documentation
 
 Visit https://www.ably.io/documentation for a complete API reference and more examples. The examples and API below is not exhaustive, you should use the completely [Ably API documentation](https://www.ably.io/documentation).
