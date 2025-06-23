@@ -86,7 +86,3 @@ This client library is currently *not compatible* with some of the Ably features
 ## Support, feedback and troubleshooting
 
 For help or technical support, visit Ably's [support page](https://ably.com/support). You can also view the [community reported Github issues](https://github.com/ably/ably-ruby-rest/issues) or raise one yourself.
-
-## License
-
-Copyright (c) 2017 Ably Real-time Ltd, Licensed under the Apache License, Version 2.0.  Refer to [LICENSE](LICENSE) for the license terms.
