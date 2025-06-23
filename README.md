@@ -79,13 +79,7 @@ This client library is currently *not compatible* with some of the Ably features
 
 ## Support, feedback and troubleshooting
 
-Please visit http://support.ably.io/ for access to our knowledgebase and to ask for any assistance.
-
-You can also view the [community reported Github issues](https://github.com/ably/ably-ruby-rest/issues).
-
-To see what has changed in recent versions of Bundler, see the [CHANGELOG](CHANGELOG.md).
-
-See the [Ably Ruby release process notes](https://github.com/ably/ably-ruby#release-process).
+For help or technical support, visit Ably's [support page](https://ably.com/support). You can also view the [community reported Github issues](https://github.com/ably/ably-ruby-rest/issues) or raise one yourself.
 
 ## License
 
