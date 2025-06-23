@@ -69,11 +69,11 @@ The [CHANGELOG.md](/ably/ably-ruby-rest/blob/main/CHANGELOG.md) contains details
 
 ---
 
-## Realtime vs REST
+## Contribute
 
-This REST only library was created for developers who do not want EventMachine as a dependency of their application. Typically developers who are using Ably within their Rails or Sinatra apps would prefer to use the REST library as it has less dependencies and offers a synchronous API.
+Read the [CONTRIBUTING.md](./CONTRIBUTING.md) guidelines to contribute to Ably.
 
-If however you need to use a realtime library that offers an asynchronous evented AP, then we recommended you [take a look at the combined REST & Realtime gem](https://rubygems.org/gems/ably).
+---
 
 ## Known Limitations
 
