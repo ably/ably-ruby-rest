@@ -63,6 +63,12 @@ $ gem install ably-rest
 
 ---
 
+## Releases
+
+The [CHANGELOG.md](/ably/ably-ruby-rest/blob/main/CHANGELOG.md) contains details of the latest releases for this SDK. You can also view all Ably releases on [changelog.ably.com](https://changelog.ably.com).
+
+---
+
 ## Realtime vs REST
 
 This REST only library was created for developers who do not want EventMachine as a dependency of their application. Typically developers who are using Ably within their Rails or Sinatra apps would prefer to use the REST library as it has less dependencies and offers a synchronous API.
