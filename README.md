@@ -6,9 +6,13 @@
 
 # Ably Pub/Sub Ruby REST SDK
 
-Build any realtime experience using Ably’s Pub/Sub Ruby REST SDK, supported on all popular platforms and frameworks.
+Build using Ably’s Pub/Sub Ruby REST SDK, supported on all popular platforms and frameworks.
 
 Ably Pub/Sub provides flexible APIs that deliver features such as pub-sub messaging, message history, presence, and push notifications. Utilizing Ably’s realtime messaging platform, applications benefit from its highly performant, reliable, and scalable infrastructure.
+
+This REST-only SDK supports applications that do not to include `EventMachine` as a dependency. It's suitable for Rails or Sinatra applications, that favor the REST library due to its minimal dependencies and synchronous API.
+
+For applications requiring Realtime functionality with an asynchronous, event-driven API, we recommend using the [combined REST & Realtime gem](https://rubygems.org/gems/ably).
 
 Find out more:
 
@@ -21,7 +25,8 @@ Find out more:
 
 Everything you need to get started with Ably:
 
-- [Quickstart in Pub/Sub using Ruby](https://ably.com/docs/getting-started/quickstart?lang=ruby)
+* [Quickstart in Pub/Sub using Ruby](https://ably.com/docs/getting-started/quickstart?lang=ruby)
+* [SDK Setup for Ruby.](https://ably.com/docs/getting-started/setup?lang=ruby)
 
 ---
 
@@ -62,9 +67,36 @@ $ gem install ably-rest
 
 ---
 
+## Usage
+
+The following code connects to Ably's REST messaging service, publishes a messages to channel, retrieve message history, generate authentication tokens, and sends end-to-end encrypted messages:
+
+```ruby
+# Initialize client and channel
+client = Ably::Rest.new(key: 'your-ably-api-key')
+channel = client.channel('test-channel')
+
+# Publishing a message to a channel
+channel.publish('test-event', 'hello world!') #=> true
+
+# Querying the History
+messages_page = channel.history #=> #<Ably::Models::PaginatedResult ...>
+messages_page.items.first.data # payload for the message
+
+# Generate a Token (for secure client connections)
+token_details = client.auth.request_token
+token_details.token # => "your-token"
+client = Ably::Rest.new(token: token_details)
+
+# Encrypted messages
+secret_key = Ably::Util::Crypto.generate_random_key
+channel = client.channels.get('test-channel', cipher: { key: secret_key })
+channel.publish nil, "sensitive data" # automatically encrypted
+```
+
 ## Releases
 
-The [CHANGELOG.md](/ably/ably-ruby-rest/blob/main/CHANGELOG.md) contains details of the latest releases for this SDK. You can also view all Ably releases on [changelog.ably.com](https://changelog.ably.com).
+The [CHANGELOG.md](./CHANGELOG.md) contains details of the latest releases for this SDK. You can also view all Ably releases on [changelog.ably.com](https://changelog.ably.com).
 
 ---
 
