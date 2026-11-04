@@ -1,3 +1,6 @@
+> [!WARNING]
+> **This SDK has been deprecated.** Please use the [`ably-pubsub-server`](https://rubygems.org/gems/ably-pubsub-server) gem from the [ably/ably-pubsub-ruby](https://github.com/ably/ably-pubsub-ruby) repository instead.
+
 ![Ably Chat Header](/images/ruby-REST-SDK-github.png)
 [![Gem Version](https://badge.fury.io/rb/ably-rest.svg)](https://rubygems.org/gems/ably-rest)
 [![License](https://badgen.net/github/license/ably/ably-ruby)](https://github.com/ably/ably-ruby/blob/main/LICENSE)
